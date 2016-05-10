@@ -17,4 +17,8 @@ Hola
 
 Chau
 
+<<<<<<< HEAD
 listo chau
+=======
+o no?
+>>>>>>> 45292a43e69eeaeba121933a740e7da08e2efc9a
