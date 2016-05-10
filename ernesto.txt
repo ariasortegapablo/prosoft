@@ -13,7 +13,12 @@ en
 un 
 
 trigal
+<<<<<<< HEAD
 
 HOLA
 HOLA
 HOLA
+=======
+
+Mi alumno favorito es el señor Chain
+>>>>>>> 3980d2b6f78c3a7e1355f4012600cbf59cccdba5

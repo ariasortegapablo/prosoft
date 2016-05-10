@@ -12,7 +12,13 @@ ed
 e
 d
 ede
+<<<<<<< HEAD
 d
 HOLA
 HOLA
 HOLA
+=======
+d
+
+Pablitonator
+>>>>>>> 3980d2b6f78c3a7e1355f4012600cbf59cccdba5
