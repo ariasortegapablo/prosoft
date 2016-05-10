@@ -4,13 +4,14 @@ TRistes
 
 Tigres 
 
-comieron 
+comieronEjemplo de cambio 
 
 trigo 
 
 en 
-
+Ejemplo de cambio
 un 
+<<<<<<< HEAD
 
 trigal
 <<<<<<< HEAD
@@ -22,3 +23,5 @@ HOLA
 
 Mi alumno favorito es el señor Chain
 >>>>>>> 3980d2b6f78c3a7e1355f4012600cbf59cccdba5
+=======
+>>>>>>> 867526fc11bd68bd072c41dab6e53cd6fcc20d62
