@@ -1,16 +1,13 @@
 HOLA
-BOLA
+<<<<<<< HEAD
 HOLA
-BOLABOLA
-    HOLABOLA
-        BOLABOLA
-            HOLABOLA
-                BOLABOLA
-                    BOLABOLA
-                        BOLABOLA
-                            BOLABOLA
-                                BOLABOLA
-                                    BOLABOLA
-                                        BOLABOLA
-                                            BOLABOLA
-                                                BOLA
+HOLA
+HOLA
+HOLA
+Ejemplo de Cambio
+Ejemplo de cambio
+Ejemplo de cambio
+HOLA
+	HOLA
+HOLA
+HOLA
