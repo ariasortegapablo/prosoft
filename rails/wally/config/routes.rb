@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'luis_helloworld/index'
+
   get 'pabloarias/holas'
 
   get 'diego_helloworld/index'
