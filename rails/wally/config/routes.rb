@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+
+  get 'mail_sender_controller/sendMail'
+
   get 'sms_sender/sendSMS'
 
   # The priority is based upon order of creation: first created -> highest priority.
