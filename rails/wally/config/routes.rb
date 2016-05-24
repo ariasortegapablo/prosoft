@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'sms_sender/sendSMS'
+
   get 'luis_helloworld/index'
 
   get 'pabloarias/holas'
