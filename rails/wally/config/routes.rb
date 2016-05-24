@@ -1,15 +1,9 @@
 Rails.application.routes.draw do
+
+  get 'mail_sender_controller/sendMail'
+
   get 'sms_sender/sendSMS'
 
-  get 'luis_helloworld/index'
-
-  get 'pabloarias/holas'
-
-  get 'diego_helloworld/index'
-
-  get 'welcome/index'
-  
-  get 'welcome2/index'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
