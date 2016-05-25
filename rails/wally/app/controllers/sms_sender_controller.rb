@@ -17,5 +17,8 @@ class SmsSenderController < ApplicationController
         :to => number_to_send_to,
         :body => "This is an message. It gets sent to #{number_to_send_to}"
     )
+
+    MailSender.sample_email.deliver_now
+
   end
 end
