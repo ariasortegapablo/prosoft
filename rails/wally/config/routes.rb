@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :pets
   get 'mail_sender_controller/sendMail'
 
   get 'sms_sender/sendSMS'
