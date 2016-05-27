@@ -1,0 +1,54 @@
+<%= form_for :post ,:url => { :action => :create} do |f| %>
+ 
+  
+   <div class="field">
+    <%= f.label :nombre %>
+    <%= f.text_field :nombre%>
+  </div>
+ <div class="field">
+    <%= f.label :apellido %>
+    <%= f.text_field :apellido%>
+  </div>
+ <div class="field">
+    <% ge ={
+      'masculino' => 'M',
+      'femenino' =>  'F',}
+    %>
+    <%= f.label :genero %>
+    <%= f.select :genero, ge%>
+  </div>
+ <div class="field">
+   <% contextu ={
+      'delgada' => 'd',
+      'media' =>  'm',
+      'gruesa' =>  'g',} 
+    %>
+    <%= f.label :contextura %>
+    <%= f.select :contextura,contextu%>
+  </div>
+ <div class="field">
+    <% altu ={
+      'alto' => 'a',
+      'mediano' =>  'm',
+      'bajo   ' =>  'b',}
+    %>
+    <%= f.label :altura %>
+    <%= f.select :altura,altu%>
+  </div>
+ <div class="field">
+    <%= f.label :ultima_posicion_conocida %><br>
+    <%= f.text_area :upc  ,:cols =>30 ,:rows => 10 %>
+  </div>
+ <div class="field">
+    <%= f.label :ultima_vestimenta %><br>
+    <%= f.text_area :uv  ,:cols =>30 ,:rows => 10 %>
+  </div>
+ <div class="field">
+    <%= f.label :lugares_que_frecuenta %><br>
+    <%= f.text_area :lqf ,:cols =>30 ,:rows => 10 %>
+  </div>
+ 
+  <div class="actions">
+    <%= f.submit "Aceptar" %>
+  </div>
+<% end %>
