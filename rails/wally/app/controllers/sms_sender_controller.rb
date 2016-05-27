@@ -2,7 +2,8 @@ require 'twilio-ruby'
 
 class SmsSenderController < ApplicationController
 
-  def sendSMS
+
+  def sendSMSto(number)
 
     number_to_send_to = "+59170422102"
 

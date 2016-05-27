@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
 
+  get 'telegram_sender/sendMessageTo'
+
+  get 'telegram_sender/sendMessageToMany'
+
   resources :pets
   get 'mail_sender_controller/sendMail'
 
