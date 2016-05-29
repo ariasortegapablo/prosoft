@@ -1,10 +1,15 @@
 Rails.application.routes.draw do
 
+  get 'telegram_sender/sendMessageTo'
+
+  get 'telegram_sender/sendMessageToMany'
+
   resources :datosds
   resources :documents
   get 'mail_sender_controller/sendMail'
 
   get 'sms_sender/sendSMS'
+
   root 'desaparecido#new'
   post "desaparecido" => "desaparecido#create"
   get "desaparecido/:id"=> "desaparecido#show"
