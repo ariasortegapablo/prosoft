@@ -1,6 +1,19 @@
-<%= form_for :post ,:url => { :action => :create} do |f| %>
- 
-  
+<%= form_for :post , html: {multipart: true },:url => { :action => :create} do |f| %>
+ <% if @dato.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@dato.errors.count, "error") %> prohibited this turno from being saved:</h2>
+
+      <ul>
+      <% @dato.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="field">
+    <%= f.label :musica %>
+    <%= f.text_field :musica%>
+  </div>
    <div class="field">
     <%= f.label :nombre %>
     <%= f.text_field :nombre%>
@@ -47,7 +60,11 @@
     <%= f.label :lugares_que_frecuenta %><br>
     <%= f.text_area :lqf ,:cols =>30 ,:rows => 10 %>
   </div>
- 
+  <div class="field">
+      <%= f.label :image %><br>
+      <%= f.file_field :image %>
+    </div>
+
   <div class="actions">
     <%= f.submit "Aceptar" %>
   </div>

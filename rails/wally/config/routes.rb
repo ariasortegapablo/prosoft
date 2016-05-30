@@ -4,15 +4,19 @@ Rails.application.routes.draw do
 
   get 'telegram_sender/sendMessageToMany'
 
-  resources :datosds
-  resources :documents
+  #resources :datosds
+  #resources :documents
   get 'mail_sender_controller/sendMail'
 
   get 'sms_sender/sendSMS'
 
-  root 'desaparecido#new'
-  post "desaparecido" => "desaparecido#create"
-  get "desaparecido/:id"=> "desaparecido#show"
+ # root 'desaparecido#new'
+ # post "desaparecido" => "desaparecido#create"
+ # get "desaparecido/:id"=> "desaparecido#show"
+  root 'informer#newinformer'
+  post "informer" => "informer#create"
+  get "missing"=> "missing#new"
+  post "missing" => "missing#create"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

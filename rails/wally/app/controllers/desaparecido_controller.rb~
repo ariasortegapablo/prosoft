@@ -2,9 +2,10 @@ class DesaparecidoController < ApplicationController
 
 def new
     @dato = Datosd.new
+
   end
  def create
-    @dato = Datos.new(params[:post].permit(:nombre,:apellido,:genero,:contextura,:altura,:upc,:uv,:lqf))
+    @dato = Datosd.new(params[:post].permit(:nombre,:apellido,:genero,:contextura,:altura,:upc,:uv,:lqf))
 
     respond_to do |format|
       if @dato.save

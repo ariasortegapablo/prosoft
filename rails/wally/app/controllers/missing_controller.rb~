@@ -1,0 +1,23 @@
+class MissingController < ApplicationController
+
+ def new
+    @dato = Rll.new
+  end
+ def create
+    @dato = Rll.new(params[:post].permit(:musica,:nombre,:apellido,:genero,:contextura,:altura,:upc,:uv,:lqf,:image))
+
+    respond_to do |format|
+      if @dato.save
+       
+    # format.html { redirect_to :action => :newinformer, :id =>@dato.id}
+format.html { redirect_to url_for(:controller => :informer,:action => :newinformer)}
+      else
+         format.html { render :new }
+         
+      end
+    end
+  end
+   def newinformer 
+ @dato = Rll.new
+       end
+end

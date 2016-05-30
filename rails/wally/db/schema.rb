@@ -11,27 +11,31 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160527062112) do
+ActiveRecord::Schema.define(version: 20160530023030) do
 
-  create_table "datosds", force: :cascade do |t|
-    t.string   "nombre"
-    t.string   "apellido"
-    t.string   "genero"
-    t.string   "contextura"
-    t.string   "altura"
-    t.text     "upc"
-    t.text     "uv"
-    t.text     "lqf"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+  create_table "informers", force: :cascade do |t|
+    t.string   "name"
+    t.string   "lastname"
+    t.string   "phone"
+    t.string   "email"
+    t.string   "docutype"
+    t.string   "identification"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
   end
 
-  create_table "documents", force: :cascade do |t|
+  create_table "missings", force: :cascade do |t|
     t.string   "name"
-    t.text     "description"
+    t.string   "lastname"
+    t.string   "gender"
+    t.string   "contexture"
+    t.string   "height"
+    t.text     "lastknownposition"
+    t.text     "lastdress"
+    t.text     "frequentplaces"
     t.string   "image"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
   end
 
 end
