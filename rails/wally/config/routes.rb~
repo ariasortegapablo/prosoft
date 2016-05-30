@@ -1,12 +1,22 @@
 Rails.application.routes.draw do
-resources :datosds
-  resources :pets
+
+  get 'telegram_sender/sendMessageTo'
+
+  get 'telegram_sender/sendMessageToMany'
+
+  resources :datosds
+  resources :documents
   get 'mail_sender_controller/sendMail'
 
   get 'sms_sender/sendSMS'
-  root 'rellenando#new'
-  post "rellenando" => "rellenando#create"
-  get "rellenando/:id"=> "rellenando#show"
+
+ # root 'desaparecido#new'
+ # post "desaparecido" => "desaparecido#create"
+ # get "desaparecido/:id"=> "desaparecido#show"
+  root 'informer#newinformer'
+  post "informer" => "informer#create"
+  get "desaparecido"=> "desaparecido#new"
+  post "desaparecido" => "desaparecido#create"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

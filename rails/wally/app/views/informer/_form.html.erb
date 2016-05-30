@@ -1,0 +1,57 @@
+<%= form_for :post , html: {multipart: true },:url => { :action => :create} do |f| %>
+ <% if @dato.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@dato.errors.count, "error") %> prohibited this turno from being saved:</h2>
+
+      <ul>
+      <% @dato.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="field">
+    <%= f.label :nombre %><br>
+    <%= f.text_field :name%>
+  </div>
+   <div class="field">
+    <%= f.label :apellido %><br>
+    <%= f.text_field :lastname%>
+  </div>
+ <div class="field">
+    <%= f.label :teléfono %><br>
+    <%= f.text_field :phone%>
+  </div>
+<div class="field">
+    <%= f.label :correo %><br>
+    <%= f.text_field :email%>
+  </div>
+ <div class="field">
+   <% types ={
+      'Carnet de identidad' => 'carnet',
+      'Brevet' =>  'brevet',
+      'Boleta de sufragio' =>  'boleta', 
+      'Pasaporte' =>  'pasaporte',} 
+      
+    %>
+     <fieldset>
+      <% types.each do |i| %>
+      <%= f.radio_button :docutype , i[1] %>
+        <label
+        for ="<%= i[1] %>">
+        <%= i[0] %>
+        </label>
+       <br/>
+         <% end %>
+     </fieldset>
+     </div>
+    <div class="field">
+      <%= f.label :imagen %><br>
+      <%= f.file_field :identification %>
+       
+               </div>
+
+  <div class="actions">
+    <%= f.submit "Aceptar" %>
+  </div>
+<% end %>
