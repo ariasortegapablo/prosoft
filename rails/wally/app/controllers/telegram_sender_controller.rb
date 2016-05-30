@@ -2,7 +2,7 @@ require 'telegram/bot'
 
 class TelegramSenderController < ApplicationController
 
-  token = '230331599:AAEEazPTD6unLIXefUcooQG4-Of_4qc****'
+  token = '234289654:AAGLp0viS8q0OXTwcPD_NYs0MUvYwp8****'
 
   # Sends an only-text telegram message to a recipient
   # Params:

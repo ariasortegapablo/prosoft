@@ -4,7 +4,7 @@ class SmsSenderController < ApplicationController
 
   #Twilio Credentials and Phone Number
   twilio_sid = "AC1f9a753d8c904a37dc3bbfb75d2b****"
-  twilio_token = "9405e3cd62e25f69ce93dd6b3b00****"
+  twilio_token = "462fa2c260d6fb7663a75e06e1da****"
   twilio_phone_number = "205417****"
 
   # Sends a sms to a recipient
