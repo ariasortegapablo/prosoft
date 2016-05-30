@@ -2,6 +2,7 @@ require 'twilio-ruby'
 
 class SmsSenderController < ApplicationController
 
+  #Twilio Credentials and Phone Number
   twilio_sid = "AC1f9a753d8c904a37dc3bbfb75d2b735c"
   twilio_token = "9405e3cd62e25f69ce93dd6b3b005b7a"
   twilio_phone_number = "2054172029"
