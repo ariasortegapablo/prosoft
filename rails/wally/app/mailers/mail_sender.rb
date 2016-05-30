@@ -1,8 +1,14 @@
 class MailSender < ActionMailer::Base
-  default from: "from@example.com"
+  default from: "contacto@wally.com.bo"
 
-  def sample_email
-    mail(to: "diego1199@hotmail.com", subject: 'Sample Email')
+  def send_email_to(email, subject, message)
+    mail(to: email, subject: subject)
+  end
+
+  def send_email_to_many(emails, subject, message)
+    emails each do |email|
+      mail(to: email, subject: subject)
+    end
   end
 
 end
