@@ -4,6 +4,10 @@ class TelegramSenderController < ApplicationController
 
   token = '230331599:AAEEazPTD6unLIXefUcooQG4-Of_4qcb5-8'
 
+  # Sends an only-text telegram message to a recipient
+  # Params:
+  # - chat_id: the chat id of the chat room with the recipient
+  # - message: the telegram message content
   def sendTextMessageOnTelegramTo(chat_id, message)
 
     Telegram::Bot::Client.run(token) do |bot|
@@ -12,6 +16,11 @@ class TelegramSenderController < ApplicationController
     end
   end
 
+  # Sends an photo or image telegram message to a recipient with a text message included
+  # Params:
+  # - chat_id: the chat id of the chat room with the recipient
+  # - image_url the image url to the image directory on the server
+  # - message: the telegram message content
   def sendPhotoMessageOnTelegramTo(chat_id, image_url, message)
 
     Telegram::Bot::Client.run(token) do |bot|
@@ -20,7 +29,10 @@ class TelegramSenderController < ApplicationController
     end
   end
 
-
+  # Sends an only-text telegram message to a list of recipients
+  # Params:
+  # - chat_ids: the chat ids of the chat rooms with the recipients
+  # - message: the telegram message content
   def sendTextMessageToMany(chat_ids, message)
 
     Telegram::Bot::Client.run(token) do |bot|
@@ -32,7 +44,11 @@ class TelegramSenderController < ApplicationController
     end
   end
 
-
+  # Sends an photo or image telegram message to a list of recipients (array) with a text message included
+  # Params:
+  # - chat_ids: the chat ids of the chat rooms with the recipients
+  # - image_url the image url to the image directory on the server
+  # - message: the telegram message content
   def sendPhotoMessageToMany(chat_ids, image_url, message)
 
     Telegram::Bot::Client.run(token) do |bot|
