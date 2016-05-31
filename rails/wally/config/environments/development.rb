@@ -38,14 +38,13 @@ Rails.application.configure do
 
   ActionMailer::Base.delivery_method = :smtp
   ActionMailer::Base.smtp_settings = {
-      :user_name => '84c02a95ee5489',
-      :password => '7acc6c8ff20c2c',
+      :user_name => 'e0f3c0a174****',
+      :password => '97f6448ef8****',
       :address => 'mailtrap.io',
       :domain => 'mailtrap.io',
       :port => '2525',
       :authentication => :cram_md5
   }
-
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
 end
