@@ -2,19 +2,39 @@ require 'telegram/bot'
 
 class TelegramSenderController < ApplicationController
 
-  token = '234289654:AAGLp0viS8q0OXTwcPD_NYs0MUvYwp8****'
+  #token = '234289654:AAGLp0viS8q0OXTwcPD_NYs0MUvYwp8****'
 
   # Sends an only-text telegram message to a recipient
   # Params:
   # - chat_id: the chat id of the chat room with the recipient
   # - message: the telegram message content
-  def sendTextMessageOnTelegramTo(chat_id, message)
+  def getChatIdFromChat
+
+    token = '234289654:AAGLp0viS8q0OXTwcPD_NYs0MUvYwp8KK_Q'
+    chatid = '195081'
 
     Telegram::Bot::Client.run(token) do |bot|
-      bot.api.send_message(chat_id: chat_id , text: message)
+      bot.listen do |message|
+        case message.text
+          when '/start'
+            bot.api.send_message(chat_id: message.chat.id, text: "Hello, #{message.from.first_name}")
+          when '/stop'
+            bot.api.send_message(chat_id: message.chat.id, text: "Bye, #{message.from.first_name}")
+        end
+        puts message.chat.id
+      end
+    end
 
+  end
+
+  def sendTextMessageOnTelegramTo(chat_id, message)
+
+    token = '234289654:AAGLp0viS8q0OXTwcPD_NYs0MUvYwp8KK_Q'
+    Telegram::Bot::Client.run(token) do |bot|
+      bot.api.send_message(chat_id: chat_id , text: message)
     end
   end
+  helper_method :sendTextMessageOnTelegramTo
 
   # Sends an photo or image telegram message to a recipient with a text message included
   # Params:
@@ -25,9 +45,9 @@ class TelegramSenderController < ApplicationController
 
     Telegram::Bot::Client.run(token) do |bot|
       bot.api.send_photo(chat_id: chat_id, photo: Faraday::UploadIO.new(image_url, 'image/jpeg'), caption: message)
-
     end
   end
+  helper_method :sendPhotoMessageOnTelegramTo
 
   # Sends an only-text telegram message to a list of recipients
   # Params:
@@ -43,6 +63,7 @@ class TelegramSenderController < ApplicationController
       end
     end
   end
+  helper_method :sendTextMessageToMany
 
   # Sends an photo or image telegram message to a list of recipients (array) with a text message included
   # Params:
@@ -59,5 +80,6 @@ class TelegramSenderController < ApplicationController
       end
     end
   end
+  helper_method :sendPhotoMessageToMany
 
 end

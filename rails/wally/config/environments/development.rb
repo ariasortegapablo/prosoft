@@ -36,6 +36,9 @@ Rails.application.configure do
   # Raises helpful error messages.
   config.assets.raise_runtime_errors = true
 
+  config.active_job.queue_adapter = :delayed_job
+
+
   ActionMailer::Base.delivery_method = :smtp
   ActionMailer::Base.smtp_settings = {
       :user_name => 'e0f3c0a174****',
