@@ -1,68 +1,82 @@
-<%= form_for :post , html: {multipart: true },:url => { :action => :create} do |f| %>
- <% if @dato.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@dato.errors.count, "error") %> prohibited this turno from being saved:</h2>
+<%= form_for :post, html: {multipart: true}, :url => {:action => :create} do |f| %>
+    <% if @dato.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@dato.errors.count, "error") %> prohibited this turno from being saved:</h2>
 
-      <ul>
-      <% @dato.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+          <ul>
+            <% @dato.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
+    <% end %>
+    <!-- Comienza el formulario, los ids de cada elemento son iguales al nombre de la columna que corresponde -->
+    <div class="container">
+      <form class="form-horizontal" id="form_members" role="form" method="POST">
+        <legend>Datos de la persona</legend>
+        <div class="form-group">
+          <label for="nombre" class="col-sm-2">Nombre</label>
+          <div class="col-sm-4">
+            <%= f.text_field :name, type: 'text', class: 'form-control', placeholder: 'Nombre' %>
+          </div>
+          <label for="lastname" class="col-sm-2">Apellido</label>
+          <div class="col-sm-4">
+            <%= f.text_field :lastname, type: 'text', class: 'form-control', placeholder: 'Apellido' %>
+          </div>
+        </div>
+        <div class="form-group">
+          <button type="submit" class="btn btn-warning" name="submit" id="submit">Subir</button>
+        </div>
+      </form>
     </div>
-  <% end %>
-  <div class="field">
-    <%= f.label :nombre %>
-    <%= f.text_field :name%>
-  </div>
-   <div class="field">
-    <%= f.label :apellido %>
-    <%= f.text_field :lastname%>
-  </div>
- 
- <div class="field">
-    <% gend ={
-      'masculino' => 'M',
-      'femenino' =>  'F',}
-    %>
-    <%= f.label :género %>
-    <%= f.select :gender, gend%>
-  </div>
- <div class="field">
-   <% contextu ={
-      'delgada' => 'thin',
-      'media' =>  'medium',
-      'gruesa' =>  'gross',} 
-    %>
-    <%= f.label :contextura %>
-    <%= f.select :contexture,contextu%>
-  </div>
- <div class="field">
-    <% heig ={
-      'alto' => 'tall',
-      'mediano' =>  'medium',
-      'bajo   ' =>  'short',}
-    %>
-    <%= f.label :altura %>
-    <%= f.select :height,heig%>
-  </div>
- <div class="field">
-    <%= f.label :ultima_posicion_conocida %><br>
-    <%= f.text_area :lastknownposition ,:cols =>30 ,:rows => 10 %>
-  </div>
- <div class="field">
-    <%= f.label :ultima_vestimenta %><br>
-    <%= f.text_area :lastdress  ,:cols =>30 ,:rows => 10 %>
-  </div>
- <div class="field">
-    <%= f.label :lugares_que_frecuenta %><br>
-    <%= f.text_area :frequentplaces ,:cols =>30 ,:rows => 10 %>
-  </div>
-  <div class="field">
+
+
+
+
+    <div class="field">
+      <% gend ={
+          'masculino' => 'M',
+          'femenino' => 'F', }
+      %>
+      <%= f.label :género %>
+      <%= f.select :gender, gend %>
+    </div>
+    <div class="field">
+      <% contextu ={
+          'delgada' => 'thin',
+          'media' => 'medium',
+          'gruesa' => 'gross', }
+      %>
+      <%= f.label :contextura %>
+      <%= f.select :contexture, contextu %>
+    </div>
+    <div class="field">
+      <% heig ={
+          'alto' => 'tall',
+          'mediano' => 'medium',
+          'bajo   ' => 'short', }
+      %>
+      <%= f.label :altura %>
+      <%= f.select :height, heig %>
+    </div>
+    <div class="field">
+      <%= f.label :ultima_posicion_conocida %><br>
+      <%= f.text_area :lastknownposition, :cols => 30, :rows => 10 %>
+    </div>
+    <div class="field">
+      <%= f.label :ultima_vestimenta %><br>
+      <%= f.text_area :lastdress, :cols => 30, :rows => 10 %>
+    </div>
+    <div class="field">
+      <%= f.label :lugares_que_frecuenta %><br>
+      <%= f.text_area :frequentplaces, :cols => 30, :rows => 10 %>
+    </div>
+    <div class="field">
       <%= f.label :image %><br>
       <%= f.file_field :image %>
     </div>
 
-  <div class="actions">
-    <%= f.submit "Aceptar" %>
-  </div>
+    <div class="actions">
+      <%= f.submit "Aceptar" %>
+    </div>
 <% end %>

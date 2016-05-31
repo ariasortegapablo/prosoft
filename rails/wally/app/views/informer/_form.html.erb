@@ -1,57 +1,64 @@
-<%= form_for :post , html: {multipart: true },:url => { :action => :create} do |f| %>
- <% if @dato.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@dato.errors.count, "error") %> prohibited this turno from being saved:</h2>
+<%= form_for :post, html: {multipart: true}, :url => {:action => :create} do |f| %>
+    <% if @dato.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@dato.errors.count, "error") %> se prohibió la subida de la forma:</h2>
 
-      <ul>
-      <% @dato.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+          <ul>
+            <% @dato.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
+    <% end %>
+    <!-- Comienza el formulario, los ids de cada elemento son iguales al nombre de la columna que corresponde -->
+    <div class="container">
+      <form class="form-horizontal" id="form_members" role="form" method="POST">
+        <legend>Persona</legend>
+        <div class="form-group">
+          <label for="nombre" class="col-sm-2">Nombre</label>
+          <div class="col-sm-4">
+            <%= f.text_field :name, type: 'text', class: 'form-control', placeholder: 'Nombre' %>
+          </div>
+          <label for="lastname" class="col-sm-2">Apellido</label>
+          <div class="col-sm-4">
+            <%= f.text_field :lastname, type: 'text', class: 'form-control', placeholder: 'Apellido' %>
+          </div>
+        </div>
+        <legend>Información de contancto</legend>
+        <div class="form-group">
+          <label for="phone" class="col-sm-2">Teléfono</label>
+          <div class="col-sm-4">
+            <%= f.text_field :phone, type: 'tel', class: 'form-control', placeholder: 'Número de teléfono' %>
+          </div>
+          <label for="email" class="col-sm-2">Correo</label>
+          <div class="col-sm-4">
+            <%= f.text_field :email, type: 'email', class: 'form-control', placeholder: 'Correo' %>
+          </div>
+        </div>
+        <legend>Identificación</legend>
+        <div class="form-group">
+          <label for="gender" class="col-sm-12">Tipo de documento</label>
+        </div>
+        <div class="form-group">
+          <%= f.radio_button :docutype, 'brevet' %> Brevet
+        </div>
+        <div class="form-group">
+          <%= f.radio_button :docutype, 'pasaporte' %> Pasaporte
+        </div>
+        <div class="form-group">
+          <%= f.radio_button :docutype, 'carnet' %> Carnet de identidad
+        </div>
+        <div class="form-group">
+          <%= f.radio_button :docutype, 'boleta' %> Boleta de sufragio
+        </div>
+        <div class="field">
+          <%= f.label :documento_de_identificación %><br>
+          <%= f.file_field :identification %>
+        </div>
+        <div class="form-group">
+          <button type="submit" class="btn btn-warning" name="submit" id="submit">Subir</button>
+        </div>
+      </form>
     </div>
-  <% end %>
-  <div class="field">
-    <%= f.label :nombre %><br>
-    <%= f.text_field :name%>
-  </div>
-   <div class="field">
-    <%= f.label :apellido %><br>
-    <%= f.text_field :lastname%>
-  </div>
- <div class="field">
-    <%= f.label :teléfono %><br>
-    <%= f.text_field :phone%>
-  </div>
-<div class="field">
-    <%= f.label :correo %><br>
-    <%= f.text_field :email%>
-  </div>
- <div class="field">
-   <% types ={
-      'Carnet de identidad' => 'carnet',
-      'Brevet' =>  'brevet',
-      'Boleta de sufragio' =>  'boleta', 
-      'Pasaporte' =>  'pasaporte',} 
-      
-    %>
-     <fieldset>
-      <% types.each do |i| %>
-      <%= f.radio_button :docutype , i[1] %>
-        <label
-        for ="<%= i[1] %>">
-        <%= i[0] %>
-        </label>
-       <br/>
-         <% end %>
-     </fieldset>
-     </div>
-    <div class="field">
-      <%= f.label :imagen %><br>
-      <%= f.file_field :identification %>
-       
-               </div>
-
-  <div class="actions">
-    <%= f.submit "Aceptar" %>
-  </div>
 <% end %>
+

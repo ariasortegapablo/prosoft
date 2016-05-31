@@ -1,3 +1,11 @@
 // Place all the styles related to the informer controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.form-control:focus {
+  border-color: #fddbab;
+  outline: 0;
+  -webkit-box-shadow: inset 0;
+  box-shadow: inset 0;
+  background-color: rgba(138, 221, 0, 0.52);
+}
