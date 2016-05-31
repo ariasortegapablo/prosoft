@@ -4,6 +4,8 @@ Rails.application.routes.draw do
 
   get 'telegram_sender/sendMessageToMany'
 
+  get 'telegram_sender/getChatIdFromChat'
+
   #resources :datosds
   #resources :documents
   get 'mail_sender_controller/sendMail'
