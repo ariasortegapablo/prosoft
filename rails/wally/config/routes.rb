@@ -10,10 +10,22 @@ Rails.application.routes.draw do
 
   get 'sms_sender/sendSMS'
 
+  root 'desaparecido#new'
+  post "desaparecido" => "desaparecido#create"
+  get "desaparecido/:id"=> "desaparecido#show"
+
+  #facebook wall post
+  get 'fb_wall_post/post'
+
+  get 'fb_wall_post/post_att'
+
+  #facebook messenger
+  get 'fb_sender/sender'
+
  # root 'desaparecido#new'
  # post "desaparecido" => "desaparecido#create"
  # get "desaparecido/:id"=> "desaparecido#show"
-  root 'informer#newinformer'
+ # root 'informer#newinformer'
   post "informer" => "informer#create"
   get "missing"=> "missing#new"
   post "missing" => "missing#create"
