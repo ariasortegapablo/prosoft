@@ -15,7 +15,7 @@
       <form class="form-horizontal" id="form_members" role="form" method="POST">
         <legend>Datos de la persona</legend>
         <div class="form-group">
-          <label for="nombre" class="col-sm-2">Nombre</label>
+          <label for="name" class="col-sm-2">Nombre</label>
           <div class="col-sm-4">
             <%= f.text_field :name, type: 'text', class: 'form-control', placeholder: 'Nombre' %>
           </div>
@@ -25,58 +25,53 @@
           </div>
         </div>
         <div class="form-group">
-          <button type="submit" class="btn btn-warning" name="submit" id="submit">Subir</button>
+          <label for="gender" class="col-sm-2">Género</label>
+          <div class="col-sm-4">
+            <%= f.select(:gender, ['Mujer', 'Hombre'], {}, {:class => 'form-control'}) %>
+          </div>
+          <label for="contexture" class="col-sm-2">Contextura</label>
+          <div class="col-sm-4">
+            <%= f.select(:contexture, ['Delgada', 'Media', 'Gruesa'], {}, {:class => 'form-control'}) %>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="height" class="col-sm-2">Altura</label>
+          <div class="col-sm-4">
+            <%= f.select(:height, ['Alta', 'Media', 'Baja'], {}, {:class => 'form-control'}) %>
+          </div>
+          <div class="col-sm-12">
+            <label for="height" class="col-sm-2"></label>
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="col-sm-4">
+            <div class="field">
+              <%= f.label :ultima_posicion_conocida %><br>
+              <%= f.text_area :lastknownposition, :cols => 30, :rows => 10, class: 'form-control' %>
+            </div>
+          </div>
+          <div class="col-sm-4">
+            <div class="field">
+              <%= f.label :ultima_vestimenta %><br>
+              <%= f.text_area :lastdress, :cols => 30, :rows => 10, class: 'form-control' %>
+            </div>
+          </div>
+          <div class="col-sm-4">
+            <div class="field">
+              <%= f.label :lugares_que_frecuenta %><br>
+              <%= f.text_area :frequentplaces, :cols => 30, :rows => 10, class: 'form-control' %>
+            </div>
+          </div>
+          <div class="field">
+            <%= f.label :foto %><br>
+            <%= f.file_field :image %>
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="col-sm-12">
+            <button type="submit" class="btn btn-warning" name="submit" id="submit">Subir</button>
+          </div>
         </div>
       </form>
-    </div>
-
-
-
-
-    <div class="field">
-      <% gend ={
-          'masculino' => 'M',
-          'femenino' => 'F', }
-      %>
-      <%= f.label :género %>
-      <%= f.select :gender, gend %>
-    </div>
-    <div class="field">
-      <% contextu ={
-          'delgada' => 'thin',
-          'media' => 'medium',
-          'gruesa' => 'gross', }
-      %>
-      <%= f.label :contextura %>
-      <%= f.select :contexture, contextu %>
-    </div>
-    <div class="field">
-      <% heig ={
-          'alto' => 'tall',
-          'mediano' => 'medium',
-          'bajo   ' => 'short', }
-      %>
-      <%= f.label :altura %>
-      <%= f.select :height, heig %>
-    </div>
-    <div class="field">
-      <%= f.label :ultima_posicion_conocida %><br>
-      <%= f.text_area :lastknownposition, :cols => 30, :rows => 10 %>
-    </div>
-    <div class="field">
-      <%= f.label :ultima_vestimenta %><br>
-      <%= f.text_area :lastdress, :cols => 30, :rows => 10 %>
-    </div>
-    <div class="field">
-      <%= f.label :lugares_que_frecuenta %><br>
-      <%= f.text_area :frequentplaces, :cols => 30, :rows => 10 %>
-    </div>
-    <div class="field">
-      <%= f.label :image %><br>
-      <%= f.file_field :image %>
-    </div>
-
-    <div class="actions">
-      <%= f.submit "Aceptar" %>
     </div>
 <% end %>
