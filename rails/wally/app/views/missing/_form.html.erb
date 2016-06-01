@@ -62,9 +62,10 @@
               <%= f.text_area :frequentplaces, :cols => 30, :rows => 10, class: 'form-control' %>
             </div>
           </div>
-          <div class="field">
-            <%= f.label :foto %><br>
-            <%= f.file_field :image %>
+        </div>
+        <div class="form-group">
+          <div class="col-sm-12">
+            <%= f.file_field :image, type: 'file', class: 'file-field' %>
           </div>
         </div>
         <div class="form-group">
