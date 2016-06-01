@@ -1,7 +1,8 @@
 require 'test_helper'
 
-class DatosdTest < ActiveSupport::TestCase
+class SendSmsJobTest < ActiveJob::TestCase
   # test "the truth" do
   #   assert true
   # end
+
 end

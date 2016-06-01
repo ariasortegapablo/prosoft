@@ -4,15 +4,14 @@ class SmsSenderController < ApplicationController
 
   #Twilio Credentials and Phone Number
 
-
   # Sends a sms to a recipient
   # Params:
   # - number: the recipient number
   # - message: the sms content
   def send_SMS_to(number, message)
 
-    twilio_sid = "AC1f9a753d8c904a37dc3bbfb75d2b735c"
-    twilio_token = "462fa2c260d6fb7663a75e06e1daa250"
+    twilio_sid = "AC1f9a753d8c904a37dc3bbfb75d2b****"
+    twilio_token = "462fa2c260d6fb7663a75e06e1da****"
     twilio_phone_number = "2054172029"
     twilio_client = Twilio::REST::Client.new twilio_sid, twilio_token
     twilio_client.account.sms.messages.create(
@@ -30,8 +29,8 @@ class SmsSenderController < ApplicationController
   # - message: the sms content
   def send_SMS_to_many(numbers, message)
 
-    twilio_sid = "AC1f9a753d8c904a37dc3bbfb75d2b735c"
-    twilio_token = "462fa2c260d6fb7663a75e06e1daa250"
+    twilio_sid = "AC1f9a753d8c904a37dc3bbfb75d2b****"
+    twilio_token = "462fa2c260d6fb7663a75e06e1da****"
     twilio_phone_number = "2054172029"
     twilio_client = Twilio::REST::Client.new twilio_sid, twilio_token
 
