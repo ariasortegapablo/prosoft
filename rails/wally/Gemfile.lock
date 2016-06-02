@@ -231,9 +231,9 @@ DEPENDENCIES
   byebug
   carrierwave (~> 0.10.0)
   coffee-rails (~> 4.1.0)
+  delayed_job_active_record
   facebook-messenger
   fb_graph2
-  delayed_job_active_record
   jbuilder (~> 2.0)
   jquery-rails
   koala
