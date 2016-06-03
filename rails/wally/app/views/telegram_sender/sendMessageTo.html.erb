@@ -1,3 +1,3 @@
 <h1>TelegramSender</h1>
 <p>Find me in app/views/telegram_sender/sendMessageTo.html.erb</p>
-<%= sendTextMessageOnTelegramTo(195081,'Hola') %>
+<%= sendTextMessageOnTelegramTo(Rails.application.secrets.telegram_test_chat_id,'Hola') %>

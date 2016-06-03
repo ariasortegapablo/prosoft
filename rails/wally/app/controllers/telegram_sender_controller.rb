@@ -2,7 +2,8 @@ require 'telegram/bot'
 
 class TelegramSenderController < ApplicationController
 
-  #token = '234289654:AAGLp0viS8q0OXTwcPD_NYs0MUvYwp8****'
+  @@token = Rails.application.secrets.telegram_token
+
 
   # Sends an only-text telegram message to a recipient
   # Params:
@@ -10,10 +11,7 @@ class TelegramSenderController < ApplicationController
   # - message: the telegram message content
   def getChatIdFromChat
 
-    token = '234289654:AAGLp0viS8q0OXTwcPD_NYs0MUvYwp8KK_Q'
-    chatid = '195081'
-
-    Telegram::Bot::Client.run(token) do |bot|
+    Telegram::Bot::Client.run(@@token) do |bot|
       bot.listen do |message|
         case message.text
           when '/start'
@@ -29,8 +27,7 @@ class TelegramSenderController < ApplicationController
 
   def sendTextMessageOnTelegramTo(chat_id, message)
 
-    token = '234289654:AAGLp0viS8q0OXTwcPD_NYs0MUvYwp8KK_Q'
-    Telegram::Bot::Client.run(token) do |bot|
+    Telegram::Bot::Client.run(@@token) do |bot|
       bot.api.send_message(chat_id: chat_id , text: message)
     end
   end
@@ -43,7 +40,7 @@ class TelegramSenderController < ApplicationController
   # - message: the telegram message content
   def sendPhotoMessageOnTelegramTo(chat_id, image_url, message)
 
-    Telegram::Bot::Client.run(token) do |bot|
+    Telegram::Bot::Client.run(@@token) do |bot|
       bot.api.send_photo(chat_id: chat_id, photo: Faraday::UploadIO.new(image_url, 'image/jpeg'), caption: message)
     end
   end
@@ -55,7 +52,7 @@ class TelegramSenderController < ApplicationController
   # - message: the telegram message content
   def sendTextMessageToMany(chat_ids, message)
 
-    Telegram::Bot::Client.run(token) do |bot|
+    Telegram::Bot::Client.run(@@token) do |bot|
 
       chat_ids each do |chat_id|
 
@@ -72,7 +69,7 @@ class TelegramSenderController < ApplicationController
   # - message: the telegram message content
   def sendPhotoMessageToMany(chat_ids, image_url, message)
 
-    Telegram::Bot::Client.run(token) do |bot|
+    Telegram::Bot::Client.run(@@token) do |bot|
 
       chat_ids each do |chat_id|
 
