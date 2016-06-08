@@ -1,58 +1,35 @@
 require 'telegram/bot'
+class TelegramSender
 
-class TelegramSenderController < ApplicationController
-
-  @@token = Rails.application.secrets.telegram_token
-
+  @@telegram_token = Rails.application.secrets.telegram_token
 
   # Sends an only-text telegram message to a recipient
   # Params:
   # - chat_id: the chat id of the chat room with the recipient
   # - message: the telegram message content
-  def getChatIdFromChat
-
-    Telegram::Bot::Client.run(@@token) do |bot|
-      bot.listen do |message|
-        case message.text
-          when '/start'
-            bot.api.send_message(chat_id: message.chat.id, text: "Hello, #{message.from.first_name}")
-          when '/stop'
-            bot.api.send_message(chat_id: message.chat.id, text: "Bye, #{message.from.first_name}")
-        end
-        puts message.chat.id
-      end
-    end
-
-  end
-
-  def sendTextMessageOnTelegramTo(chat_id, message)
-
-    Telegram::Bot::Client.run(@@token) do |bot|
+  def self.sendTextMessageOnTelegramTo(chat_id, message)
+    Telegram::Bot::Client.run(@@telegram_token) do |bot|
       bot.api.send_message(chat_id: chat_id , text: message)
     end
   end
-  helper_method :sendTextMessageOnTelegramTo
 
   # Sends an photo or image telegram message to a recipient with a text message included
   # Params:
   # - chat_id: the chat id of the chat room with the recipient
   # - image_url the image url to the image directory on the server
   # - message: the telegram message content
-  def sendPhotoMessageOnTelegramTo(chat_id, image_url, message)
-
-    Telegram::Bot::Client.run(@@token) do |bot|
+  def self.sendPhotoMessageOnTelegramTo(chat_id, image_url, message)
+    Telegram::Bot::Client.run(@@telegram_token) do |bot|
       bot.api.send_photo(chat_id: chat_id, photo: Faraday::UploadIO.new(image_url, 'image/jpeg'), caption: message)
     end
   end
-  helper_method :sendPhotoMessageOnTelegramTo
 
   # Sends an only-text telegram message to a list of recipients
   # Params:
   # - chat_ids: the chat ids of the chat rooms with the recipients
   # - message: the telegram message content
-  def sendTextMessageToMany(chat_ids, message)
-
-    Telegram::Bot::Client.run(@@token) do |bot|
+  def self.sendTextMessageToMany(chat_ids, message)
+    Telegram::Bot::Client.run(@@telegram_token) do |bot|
 
       chat_ids each do |chat_id|
 
@@ -60,23 +37,18 @@ class TelegramSenderController < ApplicationController
       end
     end
   end
-  helper_method :sendTextMessageToMany
 
   # Sends an photo or image telegram message to a list of recipients (array) with a text message included
   # Params:
   # - chat_ids: the chat ids of the chat rooms with the recipients
   # - image_url the image url to the image directory on the server
   # - message: the telegram message content
-  def sendPhotoMessageToMany(chat_ids, image_url, message)
-
-    Telegram::Bot::Client.run(@@token) do |bot|
-
+  def self.sendPhotoMessageToMany(chat_ids, image_url, message)
+    Telegram::Bot::Client.run(@@telegram_token) do |bot|
       chat_ids each do |chat_id|
-
         bot.api.send_photo(chat_id: chat_id, photo: Faraday::UploadIO.new(image_url, 'image/jpeg'), caption: message)
       end
     end
   end
-  helper_method :sendPhotoMessageToMany
 
-end
+  end
