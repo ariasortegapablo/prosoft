@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'test_enrutador/send_message'
+
   get 'telegram_sender/sendMessageTo'
 
   get 'telegram_sender/sendMessageToMany'
