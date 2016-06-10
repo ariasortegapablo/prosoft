@@ -55,7 +55,10 @@ gem 'twilio-ruby'
 # Delayed Jobs
 gem 'delayed_job_active_record'
 
+# CronTab Manager
+gem 'whenever', :require => false
 
+gem 'rails_db'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

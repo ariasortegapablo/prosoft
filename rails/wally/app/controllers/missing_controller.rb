@@ -8,6 +8,7 @@ class MissingController < ApplicationController
     flash[:some_email]= params[:param_email]
     flash[:some_docutype]= params[:param_docutype]
     flash[:some_i]= params[:param_i]
+    puts params[:param_i]
 
   end
 

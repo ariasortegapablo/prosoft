@@ -11,7 +11,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160531204635) do
+ActiveRecord::Schema.define(version: 20160610214742) do
+
+  create_table "datosds", force: :cascade do |t|
+    t.string   "nombre"
+    t.string   "apellido"
+    t.string   "genero"
+    t.string   "contextura"
+    t.string   "altura"
+    t.text     "upc"
+    t.text     "uv"
+    t.text     "lqf"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "delayed_jobs", force: :cascade do |t|
     t.integer  "priority",   default: 0, null: false
@@ -28,6 +41,14 @@ ActiveRecord::Schema.define(version: 20160531204635) do
   end
 
   add_index "delayed_jobs", ["priority", "run_at"], name: "delayed_jobs_priority"
+
+  create_table "documents", force: :cascade do |t|
+    t.string   "name"
+    t.text     "description"
+    t.string   "image"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
 
   create_table "informers", force: :cascade do |t|
     t.string   "name"
@@ -52,6 +73,15 @@ ActiveRecord::Schema.define(version: 20160531204635) do
     t.string   "image"
     t.datetime "created_at",        null: false
     t.datetime "updated_at",        null: false
+  end
+
+  create_table "telegram_chat_ids", force: :cascade do |t|
+    t.string   "chatId"
+    t.string   "firstname"
+    t.string   "lastname"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string   "updateId"
   end
 
 end

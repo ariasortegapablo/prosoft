@@ -2,29 +2,14 @@ Rails.application.routes.draw do
 
   get 'test_enrutador/send_message'
 
-  get 'telegram_sender/sendMessageTo'
-
-  get 'telegram_sender/sendMessageToMany'
-
-  get 'telegram_sender/getChatIdFromChat'
-
   #resources :datosds
   #resources :documents
   get 'mail_sender_controller/sendMail'
-
-  get 'sms_sender/sendSMS'
 
  # root 'desaparecido#new'
  # post "desaparecido" => "desaparecido#create"
  # get "desaparecido/:id"=> "desaparecido#show"
 
-  #facebook wall post
-  get 'fb_wall_post/post'
-
-  get 'fb_wall_post/post_att'
-
-  #facebook messenger
-  get 'fb_sender/sender'
 
  # root 'desaparecido#new'
  # post "desaparecido" => "desaparecido#create"
