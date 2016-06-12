@@ -1,0 +1,94 @@
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
+
+<div style='width: 800px;'>
+  <div id="map" style='width: 800px; height: 400px;'></div>
+</div>
+<p><input class="postcode" id="Postcode" name="Postcode" type="text" value="La Paz">
+  <input type="submit" id="findbutton" value="Find"/></p>
+
+
+<script>
+
+  var geocoder = new google.maps.Geocoder();
+  var marker = null;
+  var map = null;
+  function initialize() {
+    var $latitude = document.getElementById('latitude');
+    var $longitude = document.getElementById('longitude');
+    var latitude = -16.489689;
+    var longitude = -68.11929359999999;
+    var zoom = 16;
+
+    var LatLng = new google.maps.LatLng(latitude, longitude);
+//    Map Options
+
+    var mapOptions = {
+      zoom: zoom,
+      center: LatLng,
+      panControl: false,
+      zoomControl: false,
+      scaleControl: true,
+      mapTypeId: google.maps.MapTypeId.ROADMAP
+    }
+
+    //map initialization
+    map = new google.maps.Map(document.getElementById('map'), mapOptions);
+
+    //  Try HTML5 geolocation, getting the users current location
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(function (position) {
+        LatLng = {
+          lat: latitude,
+          lng: longitude
+        };
+        marker.setPosition(LatLng);
+        map.setCenter(LatLng);
+      });
+
+    }
+
+    //set the marker location, either the user's location or the default location
+    marker = new google.maps.Marker({
+      position: LatLng,
+      map: map,
+      title: 'Drag Me!',
+      draggable: true
+    });
+    //marker dragging listener, updates the coordinates on the hidden values latitude and longitude
+    google.maps.event.addListener(marker, 'dragend', function (marker) {
+      var latLng = marker.latLng;
+      $latitude.value = latLng.lat();
+      $longitude.value = latLng.lng();
+    });
+
+
+  }
+  //initialization, sets the find button, uses geocode to get the address
+  //if the button is used it sets the map center and marker location to the address
+  initialize();
+  $('#findbutton').click(function (e) {
+    var address = $("#Postcode").val();
+    geocoder.geocode({'address': address}, function (results, status) {
+      if (status == google.maps.GeocoderStatus.OK) {
+        map.setCenter(results[0].geometry.location);
+        marker.setPosition(results[0].geometry.location);
+        $(latitude).val(marker.getPosition().lat());
+        $(longitude).val(marker.getPosition().lng());
+      } else {
+        $(latitude).val(marker.getPosition().lat());
+        $(longitude).val(marker.getPosition().lng());
+        alert("Geocode was not successful for the following reason: " + status);
+      }
+    });
+    e.preventDefault();
+  });
+
+  function handleLocationError(browserHasGeolocation, infoWindow, LatLng) {
+    infoWindow.setPosition(LatLng);
+    infoWindow.setContent(browserHasGeolocation ?
+        'Error: The Geolocation service failed.' :
+        'Error: Your browser doesn\'t support geolocation.');
+  }
+
+</script>

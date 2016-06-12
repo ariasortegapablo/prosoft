@@ -42,14 +42,6 @@ ActiveRecord::Schema.define(version: 20160611154121) do
 
   add_index "delayed_jobs", ["priority", "run_at"], name: "delayed_jobs_priority"
 
-  create_table "documents", force: :cascade do |t|
-    t.string   "name"
-    t.text     "description"
-    t.string   "image"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
-  end
-
   create_table "informers", force: :cascade do |t|
     t.string   "name"
     t.string   "lastname"
@@ -84,13 +76,16 @@ ActiveRecord::Schema.define(version: 20160611154121) do
     t.datetime "updated_at",     null: false
   end
 
-  create_table "telegram_chat_ids", force: :cascade do |t|
-    t.string   "chatId"
-    t.string   "firstname"
-    t.string   "lastname"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.string   "updateId"
+  create_table "police", force: :cascade do |t|
+    t.string   "first_name"
+    t.string   "second_name"
+    t.string   "father_name"
+    t.string   "mother_name"
+    t.float    "latitude"
+    t.float    "longitude"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+    t.string   "current_status"
   end
 
 end

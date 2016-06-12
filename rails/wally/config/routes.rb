@@ -2,6 +2,9 @@ Rails.application.routes.draw do
 
   resources :presses
   get 'test_enrutador/send_message'
+  resources :police
+
+  get 'police#index'
 
   #resources :datosds
   #resources :documents
@@ -15,7 +18,7 @@ Rails.application.routes.draw do
  # root 'desaparecido#new'
  # post "desaparecido" => "desaparecido#create"
  # get "desaparecido/:id"=> "desaparecido#show"
-  root 'informer#newinformer'
+ # root 'informer#newinformer'
   post "informer" => "informer#create"
   get "missing"=> "missing#new"
   post "missing" => "missing#create"

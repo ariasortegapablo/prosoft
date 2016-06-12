@@ -1,9 +1,0 @@
-# config/facebook.yml
-development:
-  app_id: 1694859610767598
-  secret_key: a86431a4660b427582c5ce0e119c46e7
-  callback: localhost:3000
-test:
-  ...
-production:
-  ...
