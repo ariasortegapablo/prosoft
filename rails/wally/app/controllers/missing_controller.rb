@@ -7,14 +7,13 @@ class MissingController < ApplicationController
     flash[:some_phone]= params[:param_phone]
     flash[:some_email]= params[:param_email]
     flash[:some_docutype]= params[:param_docutype]
-    flash[:some_i]= params[:param_i]
-    puts params[:param_i]
+    flash[:some_id]= params[:param_id]
 
   end
 
   def create
     @dato = Missing.new(params[:post].permit(:name, :lastname, :gender, :contexture, :height, :lastknownposition, :lastdress, :frequentplaces, :image))
-    @inf= Informer.new(:name => flash[:some_name], :lastname => flash[:some_lastname], :phone => flash[:some_phone], :email => flash[:some_email], :docutype => flash[:some_docutype], :identification => flash[:some_i])
+    @inf= Informer.new(:name => flash[:some_name], :lastname => flash[:some_lastname], :phone => flash[:some_phone], :email => flash[:some_email], :docutype => flash[:some_docutype], :identification => flash[:some_id])
     respond_to do |format|
       if @dato.save && @inf.save
 

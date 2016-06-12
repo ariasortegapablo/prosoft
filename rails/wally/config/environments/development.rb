@@ -38,7 +38,6 @@ Rails.application.configure do
 
   config.active_job.queue_adapter = :delayed_job
 
-
   ActionMailer::Base.delivery_method = :smtp
   ActionMailer::Base.smtp_settings = {
       :user_name => Rails.application.secrets.mail_server_user_name,

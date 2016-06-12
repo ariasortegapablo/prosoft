@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160610214742) do
+ActiveRecord::Schema.define(version: 20160611154121) do
 
   create_table "datosds", force: :cascade do |t|
     t.string   "nombre"
@@ -73,6 +73,15 @@ ActiveRecord::Schema.define(version: 20160610214742) do
     t.string   "image"
     t.datetime "created_at",        null: false
     t.datetime "updated_at",        null: false
+  end
+
+  create_table "presses", force: :cascade do |t|
+    t.string   "name"
+    t.string   "phone"
+    t.string   "main_email"
+    t.string   "secondary_mail"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
   end
 
   create_table "telegram_chat_ids", force: :cascade do |t|

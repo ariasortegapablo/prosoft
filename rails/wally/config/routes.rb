@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :presses
   get 'test_enrutador/send_message'
 
   #resources :datosds

@@ -1,0 +1,40 @@
+<%= form_for :post, html: {multipart: true}, :url => {:action => :create} do |f| %>
+    <% if @press.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@press.errors.count, "error") %> prohibited this press from being saved:</h2>
+
+      <ul>
+      <% @press.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+    <div class="container">
+      <form class="form-horizontal" id="form_members" role="form" method="POST">
+        <legend>Datos de contacto</legend>
+        <div class="form-group">
+          <div class="field">
+            <label for="nombre" class="col-sm=2">Nombre</label>
+            <%= f.text_field :name, type:'text', class:"form-control", placeholder: 'Nombre'%>
+          </div>
+          <div class="field">
+            <label for="telefono" class="col-sm=2">Teléfono</label>
+            <%= f.text_field :phone, type:'text', class:"form-control", placeholder: 'Teléfono'%>
+          </div>
+          <div class="field">
+            <label for="email_principal" class="col-sm=2">Email principal</label>
+            <%= f.text_field :main_email, type:'text', class:"form-control", placeholder: 'Email principal'%>
+          </div>
+          <div class="field">
+            <label for="email_secundario" class="col-sm=2">Email secundario</label>
+            <%= f.text_field :secondary_mail, type:'text', class:"form-control", placeholder: 'Email principal'%>
+          </div>
+        </div>
+        <div class="form-group">
+          <button type="submit" class="btn btn-warning" name="submit" id="submit">Guardar</button>
+        </div>
+      </form>
+    </div>
+
+<% end %>
