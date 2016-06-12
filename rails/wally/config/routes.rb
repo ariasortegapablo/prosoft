@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
 
-  get 'test_enrutador/send_message'
+  resources :police
+
+  get 'police#index'
 
   #resources :datosds
   #resources :documents
@@ -10,11 +12,16 @@ Rails.application.routes.draw do
  # post "desaparecido" => "desaparecido#create"
  # get "desaparecido/:id"=> "desaparecido#show"
 
+  #facebook wall post
+  get 'fb_wall_post/post'
+
+  get 'fb_wall_post/post_att'
+
 
  # root 'desaparecido#new'
  # post "desaparecido" => "desaparecido#create"
  # get "desaparecido/:id"=> "desaparecido#show"
-  root 'informer#newinformer'
+ # root 'informer#newinformer'
   post "informer" => "informer#create"
   get "missing"=> "missing#new"
   post "missing" => "missing#create"

@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>First name:</strong>
+  <%= @police.first_name %>
+</p>
+
+<p>
+  <strong>Second name:</strong>
+  <%= @police.second_name %>
+</p>
+
+<p>
+  <strong>Father name:</strong>
+  <%= @police.father_name %>
+</p>
+
+<p>
+  <strong>Mother name:</strong>
+  <%= @police.mother_name %>
+</p>
+
+<p>
+  <strong>Latitude:</strong>
+  <%= @police.latitude %>
+</p>
+
+<p>
+  <strong>Longitude:</strong>
+  <%= @police.longitude %>
+</p>
+
+<p>
+  <strong>Current status:</strong>
+  <%= @police.current_status %>
+</p>
+
+<%= link_to 'Edit', edit_police_path(@police) %> |
+<%= link_to 'Back', police_index_path %>
